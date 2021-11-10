@@ -164,10 +164,10 @@ rpm_qn.to_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_matu
 rpm_qn_na = pd.read_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mature_RPM_qn_NA.csv',engine='python')
 rpm_qn_na.iloc[0:2,0:2]
 #转置
-data = rpm_qn_na.values # data是数组，直接从文件读出来的数据格式是数组
-index1 = list(rpm_qn_na.keys()) # 获取原有csv文件的标题，并形成列表
-data = list(map(list, zip(*data))) # map()可以单独列出列表，将数组转换成列表
-data = pd.DataFrame(data, index=index1) # 将data的行列转换
+data = rpm_qn_na.values 
+index1 = list(rpm_qn_na.keys()) 
+data = list(map(list, zip(*data))) 
+data = pd.DataFrame(data, index=index1) 
 data.to_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mature_RPM_qn_NA_T.csv', header=0)
 #处理
 t1 = pd.read_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mature_RPM_qn_NA_T.csv', engine='python')

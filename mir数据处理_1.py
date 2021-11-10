@@ -115,10 +115,10 @@ df_imputed.isnull().sum(axis=0)
 rpm_no_nan = pd.read_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mature_RPM_T_1_knn1.csv',engine='python')
 rpm_no_nan.info()
 # 转置
-data = rpm_no_nan.values # data是数组，直接从文件读出来的数据格式是数组
-index1 = list(rpm_no_nan.keys()) # 获取原有csv文件的标题，并形成列表
-data = list(map(list, zip(*data))) # map()可以单独列出列表，将数组转换成列表
-data = pd.DataFrame(data, index=index1) # 将data的行列转换
+data = rpm_no_nan.values
+index1 = list(rpm_no_nan.keys())
+data = list(map(list, zip(*data))) 
+data = pd.DataFrame(data, index=index1)
 data.to_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mature_RPM_T_1_knn1_T.csv', header=0)
 # 处理
 rpm_no_nan_t = pd.read_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mature_RPM_T_1_knn1_T.csv',engine='python')
@@ -141,10 +141,10 @@ rpkm_qn.to_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mat
 rpm_t = pd.read_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mature_RPM_1.csv',engine='python') # knn-1之前的数据
 rpm_t.iloc[0:3,0:4]
 #转置 
-data = rpm_t.values # data是数组，直接从文件读出来的数据格式是数组
-index1 = list(rpm_t.keys()) # 获取原有csv文件的标题，并形成列表
-data = list(map(list, zip(*data))) # map()可以单独列出列表，将数组转换成列表
-data = pd.DataFrame(data, index=index1) # 将data的行列转换
+data = rpm_t.values 
+index1 = list(rpm_t.keys())
+data = list(map(list, zip(*data))) 
+data = pd.DataFrame(data, index=index1) 
 data.iloc[0:4,0:2]
 data.to_csv('E:\sirebrowser\STAD\miR\miRseq_Mature_Preprocess\STAD.miRseq_mature_RPM_1_T.csv', header=0)
 #处理

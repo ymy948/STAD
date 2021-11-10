@@ -103,23 +103,23 @@ font={'color': 'k',
       'size': 15,
       'family': 'Times New Roman'}
 
-k = 3 #聚类的类别
-iteration = 500 #聚类最大循环次数
+k = 3 #聚类数
+iteration = 500 
 
 data = pd.read_csv('E:\\sirebrowser\\STAD\\miR\\分析\\26k=3.csv', engine='python',index_col = 'Sample') 
 
 data.info()
 data = data.iloc[:,0:25]
-model = KMeans(n_clusters = k, n_jobs = 4, max_iter = iteration) #分为k类, 并发数4
-model.fit(data) #开始聚类
+model = KMeans(n_clusters = k, n_jobs = 4, max_iter = iteration)
+model.fit(data) 
 
-#详细输出原始数据及其类别
-r = pd.concat([data, pd.Series(model.labels_, index = data.index)], axis = 1)  #详细输出每个样本对应的类别
+#输出
+r = pd.concat([data, pd.Series(model.labels_, index = data.index)], axis = 1)  
 
 r.columns = list(data.columns) + [u'kgroups25'] #重命名表头
 r.iloc[0:2,0:2]
 r.insert(0,'Sample',data.index)
-r.to_csv('E:\\sirebrowser\\STAD\\miR\\分析\\26k=3importance_25.csv',index=0) #保存结果
+r.to_csv('E:\\sirebrowser\\STAD\\miR\\分析\\26k=3importance_25.csv',index=0) 
 ########################################k=2################################
 # 3k=2
 a = pd.read_csv('E:\sirebrowser\STAD\miR\分析\\3k=2.csv',engine='python')

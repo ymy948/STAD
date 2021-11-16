@@ -3,7 +3,7 @@ library("survival")
 cox_data <- read.csv("E:/sirebrowser/STAD/mRNA/gdac.broadinstitute.org_STAD.mRNAseq_Preprocess.Level_3.2016012800.0.0/cox_data.csv", header=T,row.names= 1)#存活1 死亡2
 
 fcox <- function(x){
-  FML <- as.formula(paste0('Surv(dat1$time, dat1$status) ~ ', x))
+  FML <- as.formula(paste0('Surv(cox_data$time, cox_data$status) ~ ', x))
   res.cox <- coxph(FML, data = cox_data)
   GSum <- summary(res.cox)
   HR <- round(GSum$coefficients[, 2], 2)
